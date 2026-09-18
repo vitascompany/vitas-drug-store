@@ -1,0 +1,589 @@
+:root {
+  --bg-dark: #011d2b;
+  --bg-blue: #013a5c;
+  --panel-blue: #043d60;
+  --brand-blue: #0b3c59;
+  --brand-deep: #03294a;
+  --teal: #63d3d9;
+  --green: #1dba76;
+  --light: #f3f5f7;
+  --line: rgba(255, 255, 255, 0.18);
+  --shadow: rgba(0, 0, 0, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg-dark);
+  color: var(--light);
+  font-family: "Montserrat", "Cairo", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-shell {
+  width: min(100%, 1600px);
+  min-height: 100vh;
+  background: linear-gradient(90deg, #042b3c 0%, #013d5d 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 54px 64px 40px 64px;
+}
+
+.page-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 0;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.09) 0 20%, transparent 20% 100%),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05));
+  pointer-events: none;
+}
+
+.brand-wrap {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 28px;
+}
+
+.logo-block {
+  position: relative;
+  width: 320px;
+  height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.capsule {
+  position: relative;
+  width: 260px;
+  height: 176px;
+  border-radius: 130px 130px 130px 130px / 88px 88px 88px 88px;
+  background: linear-gradient(90deg, #32c075 0%, #1baf75 50%, #1db46a 100%);
+  border: 10px solid rgba(9, 60, 89, 0.9);
+  box-shadow: inset 0 0 0 6px rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.capsule::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 28%);
+  pointer-events: none;
+}
+
+.capsule-top,
+.capsule-bottom {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.capsule-top {
+  background: linear-gradient(180deg, rgba(255,255,255,0.15), rgba(255,255,255,0.04));
+  border-radius: inherit;
+}
+
+.capsule-bottom {
+  background: linear-gradient(180deg, rgba(0,0,0,0.04), rgba(255,255,255,0.08));
+  mix-blend-mode: soft-light;
+}
+
+.ecg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ecg span {
+  position: relative;
+  width: 155px;
+  height: 85px;
+  display: block;
+  background: transparent;
+}
+
+.ecg span::before,
+.ecg span::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,0));
+}
+
+.ecg span {
+  border-radius: 12px;
+}
+
+.ecg span::before {
+  content: "";
+  position: absolute;
+  left: 23px;
+  top: 30px;
+  width: 0;
+  height: 0;
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+  border-top: 18px solid rgba(255,255,255,0);
+}
+
+.ecg::before {
+  content: "";
+  position: absolute;
+  left: 42px;
+  top: 34px;
+  width: 30px;
+  height: 70px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0));
+  border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+  transform: rotate(6deg);
+}
+
+.ecg::after {
+  content: "";
+  position: absolute;
+  left: 56px;
+  top: 18px;
+  width: 150px;
+  height: 90px;
+  background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,0));
+}
+
+.capsule .ecg {
+  position: absolute;
+  left: 16px;
+  width: 150px;
+  height: 100%;
+  border-radius: 60% 0 0 60% / 35% 0 0 35%;
+  background: linear-gradient(90deg, rgba(0,0,0,0.06), rgba(255,255,255,0.0));
+}
+
+.capsule .ecg::before {
+  content: "";
+  position: absolute;
+  left: 55px;
+  top: 5px;
+  width: 76px;
+  height: 150px;
+  border-left: 10px solid rgba(9, 60, 89, 0.9);
+  border-radius: 36px 0 0 36px;
+  transform: skewX(-12deg);
+  opacity: 0.94;
+}
+
+.capsule .ecg::after {
+  content: "";
+  position: absolute;
+  left: 90px;
+  top: 12px;
+  width: 140px;
+  height: 130px;
+  background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,0));
+  border-left: 8px solid rgba(9, 60, 89, 0.9);
+  border-radius: 12px 0 0 12px;
+  clip-path: polygon(0 52%, 14% 52%, 18% 62%, 30% 44%, 36% 44%, 44% 62%, 58% 36%, 66% 36%, 76% 58%, 84% 58%, 100% 58%, 100% 0, 0 0);
+  opacity: 0.95;
+}
+
+.logo-block::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 126px;
+  height: 126px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  filter: blur(8px);
+}
+
+.brand-copy {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.brand-title {
+  position: relative;
+  font-size: clamp(72px, 7vw, 180px);
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: -0.08em;
+  margin: 0;
+  font-weight: 700;
+  color: #f4f5f5;
+  line-height: 0.9;
+}
+
+.brand-title .reg {
+  font-size: 0.26em;
+  vertical-align: super;
+  margin-left: 8px;
+  display: inline-block;
+  padding: 11px 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.7);
+}
+
+.brand-sub {
+  font-size: clamp(22px, 2vw, 44px);
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+  margin-top: 12px;
+  margin-left: 18px;
+  text-align: center;
+}
+
+.main-copy {
+  position: relative;
+  z-index: 1;
+  margin: 40px 0 20px 0;
+  padding-left: 20px;
+}
+
+.lead {
+  margin: 0;
+  font-size: clamp(26px, 2vw, 46px);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  color: rgba(250, 252, 255, 0.9);
+  max-width: 1280px;
+  line-height: 1.35;
+}
+
+.contact-layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 28px;
+  align-items: start;
+  margin-top: 18px;
+  padding-left: 20px;
+}
+
+.contact-list {
+  max-width: 980px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 56px;
+}
+
+.location-row, .email-row, .register-row, .title-row {
+  font-size: clamp(32px, 2.4vw, 56px);
+  font-weight: 400;
+  color: rgba(255,255,255,0.92);
+}
+
+.location-row .text,
+.email-row .text,
+.register-row .text,
+.title-row .text {
+  line-height: 1.25;
+}
+
+.divider {
+  width: 100%;
+  max-width: 760px;
+  border-bottom: 3px solid rgba(255,255,255,0.52);
+  margin: 14px 0;
+}
+
+.icon {
+  display: inline-block;
+  position: relative;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.icon-pin {
+  width: 28px;
+  height: 28px;
+  background: rgba(255,255,255,0.12);
+  border: 2px solid rgba(255,255,255,0.7);
+}
+
+.icon-pin::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  background: #f15a5a;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 3px rgba(241, 90, 90, 0.18);
+}
+
+.icon-mail {
+  border: 2px solid rgba(255,255,255,0.7);
+  width: 30px;
+  height: 23px;
+  border-radius: 8px;
+}
+
+.icon-mail::before,
+.icon-mail::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 18px;
+  height: 12px;
+  border: 2px solid rgba(255,255,255,0.7);
+  border-top: 0;
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.icon-mail::before {
+  width: 13px;
+  height: 13px;
+  border-left: 2px solid rgba(255,255,255,0.7);
+  border-bottom: 2px solid rgba(255,255,255,0.7);
+  background: transparent;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  top: 45%;
+}
+
+.icon-reg {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.75);
+}
+
+.icon-reg::before {
+  content: "®";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.9);
+}
+
+.icon-building {
+  width: 30px;
+  height: 30px;
+  border: 2px solid rgba(255,255,255,0.8);
+  border-radius: 5px;
+}
+
+.icon-building::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  top: 5px;
+  bottom: 5px;
+  background:
+    linear-gradient(90deg, transparent 0 18%, rgba(255,255,255,0.8) 18% 22%, transparent 22% 78%, rgba(255,255,255,0.8) 78% 82%, transparent 82%),
+    linear-gradient(180deg, transparent 0 28%, rgba(255,255,255,0.8) 28% 32%, transparent 32% 68%, rgba(255,255,255,0.8) 68% 72%, transparent 72%);
+}
+
+.manager-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: min(100%, 940px);
+  font-size: clamp(28px, 2vw, 52px);
+  font-weight: 500;
+  margin-top: 6px;
+}
+
+.person-name {
+  display: inline-block;
+  min-width: 420px;
+  color: rgba(255,255,255,0.95);
+}
+
+.phone-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  color: rgba(255,255,255,0.95);
+  font-weight: 500;
+}
+
+.icon-phone {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  position: relative;
+  border-radius: 50%;
+  background: #4ccf86;
+  box-shadow: 0 0 0 4px rgba(76, 207, 134, 0.18);
+}
+
+.icon-phone::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 7px;
+  height: 10px;
+  background: #fff;
+  border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+  transform: translate(-50%, -50%);
+}
+
+.icon-phone::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 14px;
+  height: 13px;
+  border: 2px solid rgba(255,255,255,0.8);
+  border-top: 0;
+  border-radius: 0 0 8px 8px;
+  transform: translate(-50%, -30%);
+}
+
+.brand-mark {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+
+.brand-mark::before {
+  content: "";
+  position: absolute;
+  width: 192px;
+  height: 192px;
+  border: 8px solid rgba(255,255,255,0.7);
+  border-radius: 50%;
+  opacity: 0.4;
+}
+
+.pulse-mark {
+  position: relative;
+  width: 172px;
+  height: 172px;
+  border: 8px solid rgba(255,255,255,0.72);
+  border-radius: 50%;
+  background: rgba(255,255,255,0.02);
+}
+
+.pulse-mark::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 110px;
+  height: 110px;
+  transform: translate(-50%, -50%);
+  border-left: 8px solid rgba(255,255,255,0.7);
+  border-radius: 10px 40px 40px 10px;
+  clip-path: polygon(0 50%, 28% 50%, 32% 62%, 49% 36%, 63% 62%, 74% 61%, 100% 61%, 100% 100%, 0 100%);
+}
+
+@media (max-width: 1100px) {
+  .page-shell {
+    padding: 38px 26px 26px 26px;
+  }
+
+  .brand-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .logo-block {
+    width: 240px;
+    height: 180px;
+  }
+
+  .capsule {
+    width: 220px;
+    height: 150px;
+  }
+
+  .brand-copy {
+    margin-top: 0;
+  }
+
+  .brand-title {
+    font-size: clamp(68px, 14vw, 150px);
+  }
+
+  .brand-sub {
+    margin-left: 0;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-mark {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .brand-wrap {
+    margin-left: 0;
+  }
+
+  .main-copy {
+    padding-left: 0;
+  }
+
+  .manager-row {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .person-name {
+    min-width: 0;
+  }
+
+  .location-row, .email-row, .register-row, .title-row {
+    font-size: clamp(20px, 5vw, 38px);
+  }
+
+  .row {
+    gap: 12px;
+  }
+}
